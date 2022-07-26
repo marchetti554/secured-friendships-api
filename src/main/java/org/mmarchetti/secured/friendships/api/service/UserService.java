@@ -29,6 +29,6 @@ public class UserService implements IUserService {
 
     @Override
     public UserDto addNewUser(CreateUserRequest request) {
-        return userRepository.save();
+        return userRepository.save(request.toDTO());
     }
 }

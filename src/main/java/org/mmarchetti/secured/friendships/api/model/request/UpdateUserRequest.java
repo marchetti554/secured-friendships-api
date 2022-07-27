@@ -7,13 +7,14 @@ import org.mmarchetti.secured.friendships.api.util.MappableRequest;
 import java.time.LocalDate;
 
 /**
- *  Request model to create a new user.
+ *  Request model to update an existing user.
  *
  * @author Marco Marchetti
  */
 @Data
-public class CreateUserRequest implements MappableRequest<UserDto> {
+public class UpdateUserRequest implements MappableRequest<UserDto> {
 
+    private String id;
     private String documentID;
     private String name;
     private String email;
@@ -22,6 +23,7 @@ public class CreateUserRequest implements MappableRequest<UserDto> {
     @Override
     public UserDto toDTO() {
         return UserDto.builder()
+                .id(this.id)
                 .documentID(this.documentID)
                 .name(this.name)
                 .email(this.email)
